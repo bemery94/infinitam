@@ -1,0 +1,32 @@
+<launch>
+    <node name="infinitam" pkg="infinitam" type="infinitam_ros_node" output="screen" >
+        <param name="rgb_image_topic" value="/gazebo_depth_cam/rgb/image_raw" />
+        <param name="depth_image_topic" value="/gazebo_depth_cam/depth/image_raw" />
+
+        <param name="rgb_camera_info_topic" value="/gazebo_depth_cam/rgb/camera_info" />
+        <param name="depth_camera_info_topic" value="/gazebo_depth_cam/depth/camera_info" />
+
+        <!-- Topics for point cloud and mesh -->
+        <param name="scene_point_cloud" value="scene_point_cloud" />
+        <param name="scene_mesh" value="scene_mesh" />
+
+        <!-- Set the output one wants from Infinitam -->
+        <param name="save_cloud_to_file_system" value="" />
+
+        <!-- Infinitam settings -->
+        <param name="viewFrustum_min" value="0.035" />
+        <param name="viewFrustum_max" value="3.0" />
+        <param name="camera_frame_id" value="kinect_link_optical" />
+        <param name="world_frame_id" value="world" />
+
+        <!-- TrackerType:
+            1 - Identifies a tracker based on colour image
+            2 - Identifies an external pose input.
+            3 - Identifies a tracker based on depth image
+            4 - Identifies a tracker based on depth image (Ren et al, 2012)
+            5 - Identifies a tracker based on depth image and IMU measurement
+            6 - Identifies a tracker that use weighted ICP only on depth image
+        -->
+        <param name="trackerType" value="1" />
+    </node>
+</launch>
