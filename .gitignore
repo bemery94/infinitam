@@ -55,3 +55,7 @@ x64/
 *.exe
 *.out
 *.app
+
+# Clion
+*.idea
+*cmake-build-debug
